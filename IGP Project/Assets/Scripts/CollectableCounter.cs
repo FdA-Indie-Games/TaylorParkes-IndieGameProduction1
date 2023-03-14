@@ -12,10 +12,8 @@ public class CollectableCounter : MonoBehaviour
     void Awake()
     {
         text = GetComponent<TMPro.TMP_Text>();
-        {
-        tempDelay = scoreDelayTimer;
     }
-    }
+    
 
     void Start() => UpdateCount();
 
@@ -30,27 +28,5 @@ public class CollectableCounter : MonoBehaviour
     void UpdateCount()
     {
         text.text = $"{count}";
-    }
-
-    public float scoreDelayTimer;
-    private float tempDelay;
-    public int score;
-    public int scoreIncrement;
-     
-
-    private void Update() {
-        
-        tempDelay -= Time.deltaTime;
-
-
-        if (tempDelay <= 0) {
-            AddScore(scoreIncrement);
-            tempDelay = scoreDelayTimer;
-        }
-
-        Debug.Log (score);
-    }
-    public void AddScore(int addScore){
-        score = score + addScore;
     }
 }
