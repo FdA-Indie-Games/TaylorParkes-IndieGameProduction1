@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Movement1 : MonoBehaviour
 {
     
     public float speed = 5;
     public float leftRightSpeed = 4;
-
+    
+    bool alive = true;
     
     void FixedUpdate()
     {
+        if (!alive) return;
+
+
         transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
 
         if (Input.GetKey(KeyCode.A) ||  Input.GetKey(KeyCode.LeftArrow))
@@ -28,5 +33,18 @@ public class Player_Movement1 : MonoBehaviour
             }
         }
 
+    }
+
+    private void Update()
+    {
+        if (transform.position.y < -5)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        alive = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

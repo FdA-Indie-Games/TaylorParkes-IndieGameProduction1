@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 6490984563414747920, guid: dd68bbf55016df14abd921705d760af8, type: 3}
+  fishPrefab: {fileID: 7337604819296936689, guid: a2d1ae096d06381498c8922d4b8ef594, type: 3}
 --- !u!1 &6083730196988876188
 GameObject:
   m_ObjectHideFlags: 0

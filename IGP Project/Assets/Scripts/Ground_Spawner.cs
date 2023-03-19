@@ -6,6 +6,7 @@ public class Ground_Spawner : MonoBehaviour
 {
     public GameObject groundTile;
     Vector3 nextSpawnPoint;
+    public GameObject fishPrefab;
 
     public void SpawnTile()
     {
