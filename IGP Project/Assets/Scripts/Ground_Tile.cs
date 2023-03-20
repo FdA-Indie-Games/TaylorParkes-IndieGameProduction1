@@ -9,6 +9,8 @@ public class Ground_Tile : MonoBehaviour
     public GameObject obstaclePrefab;
     public GameObject fishPrefab;
 
+    
+
     void Start()
     {
         groundSpawner = GameObject.FindObjectOfType<Ground_Spawner>();

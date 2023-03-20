@@ -15,31 +15,30 @@ public class Player_Movement1 : MonoBehaviour
     {
         if (!alive) return;
 
-
+        //Forward Movement
         transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
 
-        if (Input.GetKey(KeyCode.A) ||  Input.GetKey(KeyCode.LeftArrow))
-        {
+         if (Input.GetKey(KeyCode.D) ||  Input.GetKey(KeyCode.RightArrow))
+         {
             if (this.gameObject.transform.position.y > Level_Borders.leftSide)
-            {
-                transform.Translate(Vector3.left * Time.deltaTime * leftRightSpeed);
+           {
+               transform.Translate(Vector3.forward * Time.deltaTime * leftRightSpeed);
             }
-        }
-        if (Input.GetKey(KeyCode.D)  ||  Input.GetKey(KeyCode.RightArrow))
+         }
+        if (Input.GetKey(KeyCode.A)  ||  Input.GetKey(KeyCode.LeftArrow))
         {
             if (this.gameObject.transform.position.y < Level_Borders.rightSide)
             {
-                transform.Translate(Vector3.left * Time.deltaTime * leftRightSpeed * -1);
+                transform.Translate(Vector3.forward * Time.deltaTime * leftRightSpeed * -1);
             }
         }
-
     }
-
+    
     private void Update()
     {
         if (transform.position.y < -5)
         {
-            Die();
+          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
     public void Die()
