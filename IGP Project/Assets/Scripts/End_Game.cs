@@ -10,7 +10,7 @@ public class End_Game : MonoBehaviour
     {
         if ( collision.gameObject.name == "enemy") 
         {
-            SceneManager.LoadScene("IGP_project");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }   
     }
 }
