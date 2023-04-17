@@ -9,7 +9,7 @@ public class Obstacle : MonoBehaviour
 
 
     private void Start()
-    {   // Find the object with the Playermovement script
+    {   // Find the object with the Playermovement script (Player)
         playerMovement = GameObject.FindObjectOfType<Player_Movement1>();
     }
 

@@ -6,11 +6,9 @@ public class Ground_Tile : MonoBehaviour
 {
 
     Ground_Spawner groundSpawner;
-    public GameObject obstaclePrefab;
+    public GameObject obstaclePrefabs;
     public GameObject collectables;
 
-
-    
 
     void Start()
     {   // What to spawn on the platforms
@@ -29,7 +27,7 @@ public class Ground_Tile : MonoBehaviour
     {    // Randomly chose which side of the platform to spawn the obstacle (left, right or middle)
         int obstacleSpawnIndex = Random.Range(2,5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
-        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
+        Instantiate(obstaclePrefabs, spawnPoint.position, Quaternion.identity, transform);
     }    
 
     public void SpawnFish()
@@ -37,7 +35,7 @@ public class Ground_Tile : MonoBehaviour
         int fishToSpawn = 10;
         for (int i = 0; i < fishToSpawn; i++)
         { // Spawn collectable Prefab
-          GameObject temp = Instantiate(collectables);
+          GameObject temp = Instantiate(collectables, transform);
           temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
         }
     }

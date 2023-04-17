@@ -12,7 +12,7 @@ public class Collectable : MonoBehaviour
 
     void Awake() => total++;
 
-    // When player colides with the coin, destroy coins 
+    // When player colides with the object, destroy object 
     void OnTriggerEnter(Collider other)
     {
       if (other.CompareTag("Player"))
