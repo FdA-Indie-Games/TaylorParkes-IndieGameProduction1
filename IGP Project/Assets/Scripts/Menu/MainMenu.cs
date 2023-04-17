@@ -19,6 +19,13 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    private void Update()
+    {
+       if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene("Endless Runner");
+        }
+    }
 
     // Starts the game again
     public void PlayAgain()

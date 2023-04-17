@@ -9,6 +9,7 @@ public class Ground_Tile : MonoBehaviour
     public GameObject obstaclePrefab;
     public GameObject collectables;
 
+
     
 
     void Start()
@@ -19,13 +20,13 @@ public class Ground_Tile : MonoBehaviour
     }
 
     void OnTriggerExit (Collider other)
-    {    // Remove platform behind player
+    {    // Remove platform behind player after they reach next platform
         groundSpawner.SpawnTile();
         Destroy(gameObject,1);
     }
 
     void SpawnObstacle()
-    {    // Randomly chose which side of the platform to spawn at,left, right or middle
+    {    // Randomly chose which side of the platform to spawn the obstacle (left, right or middle)
         int obstacleSpawnIndex = Random.Range(2,5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
         Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
@@ -41,14 +42,12 @@ public class Ground_Tile : MonoBehaviour
         }
     }
 
-
     Vector3 GetRandomPointInCollider (Collider collider)
     {
         Vector3 point = new Vector3(
         Random.Range(collider.bounds.min.x, collider.bounds.max.x),
         Random.Range(collider.bounds.min.y, collider.bounds.max.y),
-        Random.Range(collider.bounds.min.z, collider.bounds.max.z)
-        );
+        Random.Range(collider.bounds.min.z, collider.bounds.max.z));
 
         if (point != collider.ClosestPoint(point))
         {
