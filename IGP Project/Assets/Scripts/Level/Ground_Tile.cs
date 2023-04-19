@@ -27,7 +27,7 @@ public class Ground_Tile : MonoBehaviour
     {    // Randomly chose which side of the platform to spawn the obstacle (left, right or middle)
         int obstacleSpawnIndex = Random.Range(2,5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
-        Instantiate(obstaclePrefabs, spawnPoint.position, Quaternion.identity, transform);
+        Instantiate(obstaclePrefabs, spawnPoint.position, Quaternion.Euler(0,90,0));
     }    
 
     public void SpawnFish()
