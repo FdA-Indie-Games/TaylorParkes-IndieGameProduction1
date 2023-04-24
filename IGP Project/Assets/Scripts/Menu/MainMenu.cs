@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // On Start and End menus after pressing Enter starts game
     private void Update()
     {
        if (Input.GetKeyDown(KeyCode.Return))
@@ -36,5 +37,15 @@ public class MainMenu : MonoBehaviour
     public void ReturnMenu()
     {
         SceneManager.LoadScene("Start Menu");
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    void ContinueGame()
+    {
+        Time.timeScale = 1;
     }
 }
